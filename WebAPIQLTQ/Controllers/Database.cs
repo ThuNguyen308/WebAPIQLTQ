@@ -146,10 +146,10 @@ namespace WebAPIQLTQ.Controllers
         {
             return Read_Table("GetIconList");
         }
-        public static DataTable GetCategoryList(User u)
+        public static DataTable GetCategoryList(int userId)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("userId", u.userId);
+            param.Add("userId", userId);
             return Read_Table("GetCategoryList", param);
         }
         public static int CreateCategory(Category ct)
@@ -180,10 +180,10 @@ namespace WebAPIQLTQ.Controllers
             int kq = int.Parse(Exec_Command("Delete_Category", param).ToString());
             return kq;
         }
-        public static DataTable GetHabitList(User u)
+        public static DataTable GetHabitList(int userId)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("userId", u.userId);
+            param.Add("userId", userId);
             return Read_Table("GetCategoryList", param);
         }
         public static int CreateHabit(Habit h)

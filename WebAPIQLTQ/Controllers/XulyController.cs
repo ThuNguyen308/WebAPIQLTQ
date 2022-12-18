@@ -91,11 +91,11 @@ namespace WebAPIQLTQ.Controllers
 
         [Route("api/Category/GetCategoryList")]
         [HttpGet]
-        public IHttpActionResult GetCategoryList(User u)
+        public IHttpActionResult GetCategoryList(int userId)
         {
             try
             {
-                DataTable tb = Database.GetCategoryList(u);
+                DataTable tb = Database.GetCategoryList(userId);
                 return Ok(tb);
             }
             catch
@@ -154,11 +154,11 @@ namespace WebAPIQLTQ.Controllers
 
         [Route("api/Habit/GetHabitList")]
         [HttpGet]
-        public IHttpActionResult GetHabitList(User u)
+        public IHttpActionResult GetHabitList(int userId)
         {
             try
             {
-                DataTable tb = Database.GetHabitList(u);
+                DataTable tb = Database.GetHabitList(userId);
                 return Ok(tb);
             }
             catch
