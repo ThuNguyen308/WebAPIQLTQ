@@ -13,5 +13,6 @@ namespace WebAPIQLTQ.Models
         public int iconId { get; set; }
         public int userId { get; set; }
         public string colorCode { get; set; }
+        public string iconImage { get; set; }
     }
 }

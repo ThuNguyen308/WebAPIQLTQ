@@ -217,11 +217,11 @@ namespace WebAPIQLTQ.Controllers
 
         [Route("api/Habit/GetCheckinList")]
         [HttpGet]
-        public IHttpActionResult GetCheckin(Habit h)
+        public IHttpActionResult GetCheckin(int habitId)
         {
             try
             {
-                DataTable kq = Database.GetCheckinList(h);
+                DataTable kq = Database.GetCheckinList(habitId);
 
                 return Ok(kq);
             }

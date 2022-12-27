@@ -184,7 +184,7 @@ namespace WebAPIQLTQ.Controllers
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("userId", userId);
-            return Read_Table("GetCategoryList", param);
+            return Read_Table("GetHabitList", param);
         }
         public static int CreateHabit(Habit h)
         {
@@ -218,10 +218,10 @@ namespace WebAPIQLTQ.Controllers
             int kq = int.Parse(Exec_Command("Delete_Habit", param).ToString());
             return kq;
         }
-        public static DataTable GetCheckinList(Habit h)
+        public static DataTable GetCheckinList(int habitId)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("habitId", h.habitId);
+            param.Add("habitId", habitId);
             return Read_Table("GetCheckinList", param);
         }
 
