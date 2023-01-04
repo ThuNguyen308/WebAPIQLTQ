@@ -101,6 +101,8 @@ namespace WebAPIQLTQ.Controllers
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("userName", u.userName);
+            param.Add("firstName", u.firstName);
+            param.Add("lastName", u.lastName);
             param.Add("email", u.email);
             param.Add("password", u.password);
             int kq = int.Parse(Exec_Command("Signup", param).ToString());
@@ -190,8 +192,8 @@ namespace WebAPIQLTQ.Controllers
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("habitName", h.habitName);
-            param.Add("habitStartDate", h.habitStartDate.ToString("yyyy-MM-dd"));
-            param.Add("habitEndDate", h.habitEndDate.ToString("yyyy-MM-dd"));
+            param.Add("habitStartDate", h.habitStartDate.ToString("MM/dd/yyyy"));
+            param.Add("habitEndDate", h.habitEndDate.ToString("MM/dd/yyyy"));
             param.Add("habitDescription", h.habitDescription);
             param.Add("categoryId", h.categoryId);
             param.Add("userId", h.userId);
