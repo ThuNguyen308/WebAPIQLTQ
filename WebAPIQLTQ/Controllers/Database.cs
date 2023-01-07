@@ -192,8 +192,8 @@ namespace WebAPIQLTQ.Controllers
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("habitName", h.habitName);
-            param.Add("habitStartDate", h.habitStartDate.ToString("MM/dd/yyyy"));
-            param.Add("habitEndDate", h.habitEndDate.ToString("MM/dd/yyyy"));
+            param.Add("habitStartDate", h.habitStartDate.ToString("MM-dd-yyyy"));
+            param.Add("habitEndDate", h.habitEndDate.ToString("MM-dd-yyyy"));
             param.Add("habitDescription", h.habitDescription);
             param.Add("categoryId", h.categoryId);
             param.Add("userId", h.userId);
