@@ -105,6 +105,7 @@ namespace WebAPIQLTQ.Controllers
             param.Add("lastName", u.lastName);
             param.Add("email", u.email);
             param.Add("password", u.password);
+            param.Add("userImage", u.userImage);
             int kq = int.Parse(Exec_Command("Signup", param).ToString());
             if (kq > -1)
                 u.userId = kq;
@@ -117,6 +118,8 @@ namespace WebAPIQLTQ.Controllers
             param.Add("userName", u.userName);
             param.Add("email", u.email);
             param.Add("password", u.password);
+            param.Add("firstName", u.firstName);
+            param.Add("lastName", u.lastName);
             param.Add("userImage", u.userImage);
             int kq = int.Parse(Exec_Command("Update_UserInfo", param).ToString());
             return kq;
@@ -132,6 +135,8 @@ namespace WebAPIQLTQ.Controllers
             {
                 kq.userId = int.Parse(tb.Rows[0]["userId"].ToString());
                 kq.userName = tb.Rows[0]["userName"].ToString();
+                kq.userName = tb.Rows[0]["firstName"].ToString();
+                kq.userName = tb.Rows[0]["lastName"].ToString();
                 kq.email = tb.Rows[0]["email"].ToString();
                 kq.password = tb.Rows[0]["password"].ToString();
                 kq.userImage = tb.Rows[0]["userImage"].ToString();
