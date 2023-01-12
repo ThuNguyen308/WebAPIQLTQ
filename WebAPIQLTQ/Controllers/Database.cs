@@ -133,8 +133,8 @@ namespace WebAPIQLTQ.Controllers
             {
                 kq.userId = int.Parse(tb.Rows[0]["userId"].ToString());
                 kq.userName = tb.Rows[0]["userName"].ToString();
-                kq.userName = tb.Rows[0]["firstName"].ToString();
-                kq.userName = tb.Rows[0]["lastName"].ToString();
+                kq.firstName = tb.Rows[0]["firstName"].ToString();
+                kq.lastName = tb.Rows[0]["lastName"].ToString();
                 kq.email = tb.Rows[0]["email"].ToString();
                 kq.password = tb.Rows[0]["password"].ToString();
             }
