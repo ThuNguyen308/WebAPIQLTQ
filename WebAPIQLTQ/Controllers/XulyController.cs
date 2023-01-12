@@ -119,20 +119,6 @@ namespace WebAPIQLTQ.Controllers
                 return NotFound();
             }
         }
-        [Route("api/Category/GetEntryCateogry")]
-        [HttpPost]
-        public IHttpActionResult GetEntryCateogry(Category ct)
-        {
-            try
-            {
-                int tb = Database.GetEntryCateogry(ct);
-                return Ok(tb);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
 
         [Route("api/Category/UpdateCategory")]
         [HttpPost]
@@ -187,22 +173,6 @@ namespace WebAPIQLTQ.Controllers
             try
             {
                 User tb = Database.GetUserInfo(userId);
-                return Ok(tb);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
-
-        [Route("api/Habit/GetHabitsByDate")]
-        [HttpGet]
-        public IHttpActionResult GetHabitsByDate(int userId, DateTime date)
-        {
-            try
-            {
-                //string stringDate = date.ToString("yyyy-mm-dd");
-                DataTable tb = Database.GetHabitsByDate(userId, date);
                 return Ok(tb);
             }
             catch
