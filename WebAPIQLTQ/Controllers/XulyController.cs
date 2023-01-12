@@ -180,6 +180,20 @@ namespace WebAPIQLTQ.Controllers
                 return NotFound();
             }
         }
+        [Route("api/User/GetUserInfo")]
+        [HttpGet]
+        public IHttpActionResult GetUserInfo(int userId)
+        {
+            try
+            {
+                User tb = Database.GetUserInfo(userId);
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
 
         [Route("api/Habit/GetHabitsByDate")]
         [HttpGet]

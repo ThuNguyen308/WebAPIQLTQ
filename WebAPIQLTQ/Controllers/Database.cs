@@ -105,7 +105,6 @@ namespace WebAPIQLTQ.Controllers
             param.Add("lastName", u.lastName);
             param.Add("email", u.email);
             param.Add("password", u.password);
-            param.Add("userImage", u.userImage);
             int kq = int.Parse(Exec_Command("Signup", param).ToString());
             if (kq > -1)
                 u.userId = kq;
@@ -121,7 +120,7 @@ namespace WebAPIQLTQ.Controllers
             param.Add("firstName", u.firstName);
             param.Add("lastName", u.lastName);
             param.Add("userImage", u.userImage);
-            int kq = int.Parse(Exec_Command("Update_UserInfo", param).ToString());
+            int kq = int.Parse(Exec_Command("Update_User", param).ToString());
             return kq;
         }
         public static User Login(string userName, string password)
@@ -169,6 +168,7 @@ namespace WebAPIQLTQ.Controllers
             int kq = int.Parse(Exec_Command("Create_Category", param).ToString());
             return kq;
         }
+
         public static int GetEntryCateogry (Category ct)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
@@ -201,6 +201,28 @@ namespace WebAPIQLTQ.Controllers
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("userId", userId);
             return Read_Table("GetHabitList", param);
+        }
+        public static User GetUserInfo(int userId)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("userId", userId);
+            DataTable tb =  Read_Table("GetUserInfo", param);
+
+            User user = new User();
+            if (tb.Rows.Count > 0)
+            {
+                user.userId = int.Parse(tb.Rows[0]["userId"].ToString());
+                user.userName = tb.Rows[0]["userName"].ToString();
+                user.firstName = tb.Rows[0]["firstName"].ToString();
+                user.lastName = tb.Rows[0]["lastName"].ToString();
+                user.email = tb.Rows[0]["email"].ToString();
+                user.password = tb.Rows[0]["password"].ToString();
+            }
+            else
+                user = null;
+            return user;
+
+
         }
         public static DataTable GetHabitsByDate(int userId, DateTime date)
         {
