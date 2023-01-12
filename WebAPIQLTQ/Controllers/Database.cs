@@ -166,6 +166,8 @@ namespace WebAPIQLTQ.Controllers
             int kq = int.Parse(Exec_Command("Create_Category", param).ToString());
             return kq;
         }
+
+       
         public static int UpdateCategory(Category ct)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
@@ -189,6 +191,28 @@ namespace WebAPIQLTQ.Controllers
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("userId", userId);
             return Read_Table("GetHabitList", param);
+        }
+        public static User GetUserInfo(int userId)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("userId", userId);
+            DataTable tb =  Read_Table("GetUserInfo", param);
+
+            User user = new User();
+            if (tb.Rows.Count > 0)
+            {
+                user.userId = int.Parse(tb.Rows[0]["userId"].ToString());
+                user.userName = tb.Rows[0]["userName"].ToString();
+                user.firstName = tb.Rows[0]["firstName"].ToString();
+                user.lastName = tb.Rows[0]["lastName"].ToString();
+                user.email = tb.Rows[0]["email"].ToString();
+                user.password = tb.Rows[0]["password"].ToString();
+            }
+            else
+                user = null;
+            return user;
+
+
         }
         public static int CreateHabit(Habit h)
         {
