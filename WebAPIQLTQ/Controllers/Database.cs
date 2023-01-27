@@ -115,10 +115,10 @@ namespace WebAPIQLTQ.Controllers
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("userId", u.userId);
             param.Add("userName", u.userName);
-            param.Add("email", u.email);
-            param.Add("password", u.password);
             param.Add("firstName", u.firstName);
             param.Add("lastName", u.lastName);
+            param.Add("email", u.email);
+            param.Add("password", u.password);
             int kq = int.Parse(Exec_Command("Update_UserInfo", param).ToString());
             return kq;
         }
